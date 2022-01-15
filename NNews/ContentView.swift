@@ -15,8 +15,7 @@ struct ContentView: View {
     @AppStorage("userName") var userName = "NaN"
     @AppStorage("userImage") var userImage = URL(fileURLWithPath: "")
     @AppStorage("curentPage") var curentPage = 1
-    
-    @State private var isPushEnable = false
+
     @StateObject private var notificationManager = NotificationManager()
     
     var body: some View {
@@ -38,10 +37,9 @@ struct ContentView: View {
                             log_Status = false
                             }
                         }
-                        Toggle(isOn: $isPushEnable) {
-                            Text("Push Notification")
+                        Button("Notification Settings"){
+                            notificationManager.openNotificationSettings()
                         }
-                        .padding()
 
                     }
                 }

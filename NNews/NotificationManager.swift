@@ -59,4 +59,9 @@ final class NotificationManager: ObservableObject {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
     
+    func openNotificationSettings(){
+        if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url){
+            UIApplication.shared.open(url, options:[:], completionHandler: nil)
+        }
+    }
 }
