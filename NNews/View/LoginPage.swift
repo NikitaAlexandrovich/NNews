@@ -10,11 +10,14 @@ import Firebase
 import GoogleSignIn
 
 struct LoginPage: View {
-    @State var isLoading: Bool = false
+//    @State var isLoading: Bool = false
+    
+    @StateObject private var notificationManager = NotificationManager()
     
     @AppStorage("log_Status") var log_Status = false
     
     @AppStorage("userName") var userName = "NaN"
+    @AppStorage("userImage") var userImage = URL(fileURLWithPath: "")
     
     let locale = Locale.current
 //    print(locale.regionCode)
@@ -27,7 +30,6 @@ struct LoginPage: View {
                 HStack(spacing: 15){
                     Image("googleImage")
                         .resizable()
-           //           .renderingMode(.template)
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 28, height: 28)
                     Text("Sing In With Google")
@@ -39,23 +41,22 @@ struct LoginPage: View {
                 .background(Capsule().strokeBorder(Color.black))
             }
             Text(locale.regionCode ?? "NaN")
-            ProgressView()
-                .font(.title2)
-                .frame(width: 60, height: 60)
-                .background(Color.white)
-                .cornerRadius(10)
-            
+        }
+        .onAppear {
+            notificationManager.cleanNotification()
         }
        
 //        if isLoading{
 //            Color.black
 //                .opacity(0.25)
 //                .ignoresSafeArea()
-//            ProgressView()
-//                .font(.title2)
-//                .frame(width: 60, height: 60)
+//            ProgressView("Please wait...")
+//                .font(.title3)
+//                .frame(width: 140, height: 70)
 //                .background(Color.white)
 //                .cornerRadius(10)
+//                .padding(.vertical)
+//                .padding(.horizontal)
 //        }
     }
     
@@ -66,13 +67,13 @@ struct LoginPage: View {
         // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         
-        isLoading = true
+//        isLoading = true
         
         GIDSignIn.sharedInstance.signIn(with: config, presenting: getRootViewController()) {
             [self] user, err in
             
             if let error = err {
-                isLoading = false
+//                isLoading = false
                 print(error.localizedDescription)
                 return
             }
@@ -81,7 +82,7 @@ struct LoginPage: View {
                 let authentication = user?.authentication,
                 let idToken = authentication.idToken
             else {
-                isLoading = false
+//                isLoading = false
                 return
             }
 
@@ -89,7 +90,7 @@ struct LoginPage: View {
                                                              accessToken: authentication.accessToken)
             
             Auth.auth().signIn(with: credential){ result, err in
-                isLoading = false
+//                isLoading = false
                 if let error = err {
                     print(error.localizedDescription)
                     return
@@ -101,8 +102,9 @@ struct LoginPage: View {
                 print(user.displayName ?? "Success")
                 
                 
-                
                 withAnimation{
+                    
+                    userImage = user.photoURL ?? URL(fileURLWithPath: "")
                     userName = user.displayName ?? "Success"
                     log_Status = true
                 }

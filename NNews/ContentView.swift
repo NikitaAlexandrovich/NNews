@@ -8,11 +8,16 @@
 import SwiftUI
 import Firebase
 import GoogleSignIn
+import UserNotifications
 
 struct ContentView: View {
     @AppStorage("log_Status") var log_Status = false
     @AppStorage("userName") var userName = "NaN"
+    @AppStorage("userImage") var userImage = URL(fileURLWithPath: "")
     @AppStorage("curentPage") var curentPage = 1
+    
+    @State private var isPushEnable = false
+    @StateObject private var notificationManager = NotificationManager()
     
     var body: some View {
         if curentPage > 3{
@@ -20,6 +25,11 @@ struct ContentView: View {
                 // home view...
                 NavigationView{
                     VStack(spacing: 25){
+                        Image(uiImage: userImage.load())
+                            .clipShape(Circle())
+                            .shadow(radius: 10)
+                            .overlay(Circle().stroke(Color.white, lineWidth: 5))
+                        
                         Text("\(userName), You logged in")
                         Button("Logout from account"){
                             GIDSignIn.sharedInstance.signOut()
@@ -28,7 +38,15 @@ struct ContentView: View {
                             log_Status = false
                             }
                         }
+                        Toggle(isOn: $isPushEnable) {
+                            Text("Push Notification")
+                        }
+                        .padding()
+
                     }
+                }
+                .onAppear {
+                    notificationManager.cleanNotification()
                 }
             }
             else {
@@ -39,10 +57,23 @@ struct ContentView: View {
             OnBoardingView()
         }
     }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+extension URL{
+    func load()->UIImage{
+        do{
+            let data: Data = try Data(contentsOf: self)
+            return UIImage(data: data) ?? UIImage()
+        }
+        catch{}
+        return UIImage()
     }
 }

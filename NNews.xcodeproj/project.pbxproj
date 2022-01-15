@@ -16,6 +16,7 @@
 		AB47B2512791F327000B21CA /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = AB47B2502791F327000B21CA /* GoogleSignIn */; };
 		AB47B2532791F689000B21CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB47B2522791F689000B21CA /* GoogleService-Info.plist */; };
 		AB47B25627922BD0000B21CA /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47B25527922BD0000B21CA /* OnBoardingView.swift */; };
+		AB47B25A27938441000B21CA /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47B25927938441000B21CA /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		AB47B2522791F689000B21CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AB47B2542791F6B9000B21CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AB47B25527922BD0000B21CA /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		AB47B25927938441000B21CA /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				AB47B23D2791E71F000B21CA /* ContentView.swift */,
 				AB47B23F2791E720000B21CA /* Assets.xcassets */,
 				AB47B2412791E720000B21CA /* Preview Content */,
+				AB47B25927938441000B21CA /* NotificationManager.swift */,
 			);
 			path = NNews;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB47B23E2791E71F000B21CA /* ContentView.swift in Sources */,
+				AB47B25A27938441000B21CA /* NotificationManager.swift in Sources */,
 				AB47B25627922BD0000B21CA /* OnBoardingView.swift in Sources */,
 				AB47B24B2791E7F4000B21CA /* LoginPage.swift in Sources */,
 				AB47B23C2791E71F000B21CA /* NNewsApp.swift in Sources */,

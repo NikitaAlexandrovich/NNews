@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct OnBoardingView: View {
+    
     @AppStorage("curentPage") var curentPage = 1
+    @StateObject private var notificationManager = NotificationManager()
+    
     var body: some View {
         ZStack{
             if curentPage == 1 {
@@ -29,11 +32,14 @@ struct OnBoardingView: View {
                 withAnimation(.easeInOut){
                     if curentPage <= totalPages{
                         curentPage += 1
-                        
                     }else{
                         curentPage = 1
                     }
+                    if curentPage == 4 {
+                        notificationManager.addNotification()
+                    }
                 }
+                
             }, label: {
                 HStack{
                     if curentPage == 3{
@@ -48,7 +54,6 @@ struct OnBoardingView: View {
                             .kerning(1.3)
                         Image(systemName: "chevron.right")
                     }
-                    
                 }
                 .foregroundColor(.white)
                 .foregroundColor(.white)
@@ -78,6 +83,7 @@ struct ScreenView: View{
     var bgColor: Color
     
     @AppStorage("curentPage") var curentPage = 1
+    @StateObject private var notificationManager = NotificationManager()
     
     var body: some View{
         VStack(spacing: 20){
@@ -114,6 +120,7 @@ struct ScreenView: View{
                     withAnimation(.easeInOut){
                         curentPage = 4
                     }
+                    notificationManager.addNotification()
                 }, label: {
                     Text("Skip")
                         .fontWeight(.semibold)
