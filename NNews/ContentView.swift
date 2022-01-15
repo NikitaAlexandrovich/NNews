@@ -12,28 +12,31 @@ import GoogleSignIn
 struct ContentView: View {
     @AppStorage("log_Status") var log_Status = false
     @AppStorage("userName") var userName = "NaN"
+    @AppStorage("curentPage") var curentPage = 1
     
     var body: some View {
-        if log_Status{
-            
-            // home view...
-            NavigationView{
-                VStack(spacing: 25){
-                    Text("\(userName), You logged in")
-                    Button("Logout from account"){
-                        GIDSignIn.sharedInstance.signOut()
-                        try? Auth.auth().signOut()
-                        
-                        withAnimation{
+        if curentPage > 3{
+            if log_Status{
+                // home view...
+                NavigationView{
+                    VStack(spacing: 25){
+                        Text("\(userName), You logged in")
+                        Button("Logout from account"){
+                            GIDSignIn.sharedInstance.signOut()
+                            try? Auth.auth().signOut()
+                            withAnimation{
                             log_Status = false
-                            
+                            }
                         }
                     }
                 }
             }
+            else {
+                LoginPage()
+            }
         }
-        else {
-            LoginPage()
+        else{
+            OnBoardingView()
         }
     }
 }

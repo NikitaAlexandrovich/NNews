@@ -16,25 +16,37 @@ struct LoginPage: View {
     
     @AppStorage("userName") var userName = "NaN"
     
+    let locale = Locale.current
+//    print(locale.regionCode)
+    
     var body: some View {
-        Button {
-            handleLoggin()
-        } label : {
-            HStack(spacing: 15){
-                Image("googleImage")
-                    .resizable()
-//                    .renderingMode(.template)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 28, height: 28)
-                Text("Sing In With Google")
-                    .font(.title3)
-                    .fontWeight(.medium)
-                    .kerning(1.1)
+        VStack(spacing: 20){
+            Button {
+                handleLoggin()
+            } label : {
+                HStack(spacing: 15){
+                    Image("googleImage")
+                        .resizable()
+           //           .renderingMode(.template)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 28, height: 28)
+                    Text("Sing In With Google")
+                        .font(.title3)
+                        .fontWeight(.medium)
+                        .kerning(1.1)
+                }
+                .padding()
+                .background(Capsule().strokeBorder(Color.black))
             }
-            .padding()
-            .background(Capsule().strokeBorder(Color.black))
+            Text(locale.regionCode ?? "NaN")
+            ProgressView()
+                .font(.title2)
+                .frame(width: 60, height: 60)
+                .background(Color.white)
+                .cornerRadius(10)
+            
         }
-        
+       
 //        if isLoading{
 //            Color.black
 //                .opacity(0.25)
