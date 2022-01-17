@@ -10,54 +10,54 @@ import Firebase
 import GoogleSignIn
 
 struct LoginPage: View {
-//    @State var isLoading: Bool = false
-    
-    @StateObject private var notificationManager = NotificationManager()
-    
+        
     @AppStorage("log_Status") var log_Status = false
     
     @AppStorage("userName") var userName = "NaN"
+    @AppStorage("userEmail") var userEmail = "NaN"
     @AppStorage("userImage") var userImage = URL(fileURLWithPath: "")
     
-    let locale = Locale.current
-//    print(locale.regionCode)
+    @StateObject private var notificationManager = NotificationManager()
     
     var body: some View {
         VStack(spacing: 20){
-            Button {
+            
+            Button(action: {
                 handleLoggin()
-            } label : {
+            }, label: {
                 HStack(spacing: 15){
                     Image("googleImage")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 28, height: 28)
                     Text("Sing In With Google")
-                        .font(.title3)
-                        .fontWeight(.medium)
-                        .kerning(1.1)
+//                        .font(.title3)
+//                        .fontWeight(.medium)
+//                        .kerning(1.1)
                 }
+            })
+                .buttonStyle(RoundedCorners(color: Color.black))
                 .padding()
-                .background(Capsule().strokeBorder(Color.black))
-            }
-            Text(locale.regionCode ?? "NaN")
+            
+            
+            
+            
+            Button(action: {
+                notificationManager.openApplicationSettings()
+            }, label: {
+                Text("Notification Settings")
+            })
+                .buttonStyle(RoundedCorners(color: Color.black))
+                .padding()
+            Button(action: {
+                notificationManager.openApplicationSettings()
+            }, label: {
+                Text("FaceID/TouchID Settings")
+            })
+                .buttonStyle(RoundedCorners(color: Color.black))
+                .padding()
         }
-        .onAppear {
-            notificationManager.cleanNotification()
-        }
-       
-//        if isLoading{
-//            Color.black
-//                .opacity(0.25)
-//                .ignoresSafeArea()
-//            ProgressView("Please wait...")
-//                .font(.title3)
-//                .frame(width: 140, height: 70)
-//                .background(Color.white)
-//                .cornerRadius(10)
-//                .padding(.vertical)
-//                .padding(.horizontal)
-//        }
+        .navigationBarTitle("Account", displayMode: .automatic)
     }
     
     func handleLoggin() {
@@ -67,13 +67,11 @@ struct LoginPage: View {
         // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         
-//        isLoading = true
         
         GIDSignIn.sharedInstance.signIn(with: config, presenting: getRootViewController()) {
             [self] user, err in
             
             if let error = err {
-//                isLoading = false
                 print(error.localizedDescription)
                 return
             }
@@ -82,7 +80,6 @@ struct LoginPage: View {
                 let authentication = user?.authentication,
                 let idToken = authentication.idToken
             else {
-//                isLoading = false
                 return
             }
 
@@ -90,7 +87,6 @@ struct LoginPage: View {
                                                              accessToken: authentication.accessToken)
             
             Auth.auth().signIn(with: credential){ result, err in
-//                isLoading = false
                 if let error = err {
                     print(error.localizedDescription)
                     return
@@ -100,19 +96,16 @@ struct LoginPage: View {
                 }
                 
                 print(user.displayName ?? "Success")
-                
-                
+
                 withAnimation{
-                    
                     userImage = user.photoURL ?? URL(fileURLWithPath: "")
-                    userName = user.displayName ?? "Success"
+                    userName = user.displayName ?? "NaN"
+                    userEmail = user.email ?? "NaN"
                     log_Status = true
                 }
             
             }
-            
         }
-        
     }
 }
 
