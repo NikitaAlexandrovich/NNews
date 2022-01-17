@@ -22,7 +22,6 @@ final class NotificationManager: ObservableObject {
                                     
                     var datMorningComp = DateComponents()
                     datMorningComp.hour = 9
-                    datMorningComp.minute = 0
                     let triggerMorning = UNCalendarNotificationTrigger(dateMatching: datMorningComp, repeats: true)
                     let requestMorning = UNNotificationRequest(identifier: "Morning News", content: notificationMorningContent, trigger: triggerMorning)
                     UNUserNotificationCenter.current().add(requestMorning) { (error : Error?) in
@@ -39,7 +38,6 @@ final class NotificationManager: ObservableObject {
                                     
                     var datEveningComp = DateComponents()
                     datEveningComp.hour = 18
-                    datEveningComp.minute = 0
                     let triggerEvening = UNCalendarNotificationTrigger(dateMatching: datEveningComp, repeats: true)
                     let requestEvening = UNNotificationRequest(identifier: "Evening News", content: notificationEveningContent, trigger: triggerEvening)
                     UNUserNotificationCenter.current().add(requestEvening) { (error : Error?) in
@@ -59,7 +57,7 @@ final class NotificationManager: ObservableObject {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
     
-    func openNotificationSettings(){
+    func openApplicationSettings(){
         if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url){
             UIApplication.shared.open(url, options:[:], completionHandler: nil)
         }
