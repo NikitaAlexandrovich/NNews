@@ -9,16 +9,25 @@ import SwiftUI
 
 struct RoundedCorners: ButtonStyle {
  
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
     var color: Color
     
     func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .frame(maxWidth: .infinity)
-            .background(Color.white)
-            .padding(10)
-            .overlay(
-                   RoundedRectangle(cornerRadius: 10)
-                       .stroke(color, lineWidth: 1)
-               )
+        if colorScheme == .dark{
+            configuration.label
+                .frame(maxWidth: .infinity)
+                .background(Color.black)
+                .padding(10)
+                .overlay(RoundedRectangle(cornerRadius: 10)
+                            .stroke(.white, lineWidth: 1))
+        } else{
+            configuration.label
+                .frame(maxWidth: .infinity)
+                .background(Color.white)
+                .padding(10)
+                .overlay(RoundedRectangle(cornerRadius: 10)
+                           .stroke(color, lineWidth: 1))
         }
+    }
 }

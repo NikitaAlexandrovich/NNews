@@ -14,6 +14,8 @@ struct BookmarkNewsTabView: View {
     
     @State private var isUnlocked = false
     
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
     var body: some View {
         if log_Status{
             NavigationView{
@@ -26,29 +28,33 @@ struct BookmarkNewsTabView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 150, height: 150)
                             .padding(60)
-                        
-                        Text("Your falied biometric authentication!")
-                            .font(.title3)
-                            .kerning(1.3)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black)
-                            .padding(.top)
-                            .multilineTextAlignment(.center)
-                            
+                        if colorScheme == .dark{
+                            Text("Your falied biometric authentication!")
+                                .font(.title3)
+                                .kerning(1.3)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding(.top)
+                                .multilineTextAlignment(.center)
+                        }
+                        else{
+                            Text("Your falied biometric authentication!")
+                                .font(.title3)
+                                .kerning(1.3)
+                                .fontWeight(.bold)
+                                .foregroundColor(.black)
+                                .padding(.top)
+                                .multilineTextAlignment(.center)
+                        }
                         Spacer()
                             .frame(height: 40)
                         Button(action: {
                             authenticate()
                         }, label: {
                             Text("Try again")
-                                .fontWeight(.semibold)
-                                .kerning(1.3)
-                                .foregroundColor(.white)
-                                .padding(.vertical, 10)
-                                .padding(.horizontal)
-                                .background(Color.gray.opacity(0.7))
-                                .cornerRadius(10)
                         })
+                            .buttonStyle(RoundedCorners(color: Color.black))
+                            .padding()
                     }
                 }
             }

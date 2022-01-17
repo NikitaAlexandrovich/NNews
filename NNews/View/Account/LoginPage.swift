@@ -20,44 +20,32 @@ struct LoginPage: View {
     @StateObject private var notificationManager = NotificationManager()
     
     var body: some View {
-        VStack(spacing: 20){
-            
-            Button(action: {
-                handleLoggin()
-            }, label: {
-                HStack(spacing: 15){
-                    Image("googleImage")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 28, height: 28)
-                    Text("Sing In With Google")
-//                        .font(.title3)
-//                        .fontWeight(.medium)
-//                        .kerning(1.1)
-                }
-            })
-                .buttonStyle(RoundedCorners(color: Color.black))
-                .padding()
-            
-            
-            
-            
-            Button(action: {
-                notificationManager.openApplicationSettings()
-            }, label: {
-                Text("Notification Settings")
-            })
-                .buttonStyle(RoundedCorners(color: Color.black))
-                .padding()
-            Button(action: {
-                notificationManager.openApplicationSettings()
-            }, label: {
-                Text("FaceID/TouchID Settings")
-            })
-                .buttonStyle(RoundedCorners(color: Color.black))
-                .padding()
+        NavigationView{
+            VStack(spacing: 20){
+                Button(action: {
+                    handleLoggin()
+                }, label: {
+                    HStack(spacing: 15){
+                        Image("googleImage")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 28, height: 28)
+                        Text("Sing In With Google")
+                    }
+                })
+                    .buttonStyle(RoundedCorners(color: Color.black))
+                    .padding()
+
+                Button(action: {
+                    notificationManager.openApplicationSettings()
+                }, label: {
+                    Text("Notification Settings")
+                })
+                    .buttonStyle(RoundedCorners(color: Color.black))
+                    .padding()
+            }
+            .navigationBarTitle("Account", displayMode: .automatic)
         }
-        .navigationBarTitle("Account", displayMode: .automatic)
     }
     
     func handleLoggin() {

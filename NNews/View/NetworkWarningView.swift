@@ -10,6 +10,7 @@ import SwiftUI
 struct NetworkWarningView: View {
     
     @StateObject private var internetConnection = NetworkManager()
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     var body: some View {
         VStack{
@@ -18,34 +19,34 @@ struct NetworkWarningView: View {
                 .aspectRatio(contentMode: .fit)
                 .padding(70)
             
-            Text("Your internet connection has been lost!")
-                .font(.title3)
-                .kerning(1.3)
-                .fontWeight(.bold)
-                .foregroundColor(.black)
-                .padding(.top)
-                .multilineTextAlignment(.center)
-                
+            if colorScheme == .dark{
+                Text("Your internet connection has been lost!")
+                    .font(.title3)
+                    .kerning(1.3)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding(.top)
+                    .multilineTextAlignment(.center)
+            }
+            else{
+                Text("Your internet connection has been lost!")
+                    .font(.title3)
+                    .kerning(1.3)
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                    .padding(.top)
+                    .multilineTextAlignment(.center)
+            }
+            
             Spacer()
                 .frame(height: 40)
             Button(action: {
                 internetConnection.updateStatus()
             }, label: {
                 Text("Require")
-                    .fontWeight(.semibold)
-                    .kerning(1.3)
-                    .foregroundColor(.white)
-                    .padding(.vertical, 10)
-                    .padding(.horizontal)
-                    .background(Color.black.opacity(0.4))
-                    .cornerRadius(10)
             })
-            
-//            Group{
-//                if internetConnection.isConnected {
-//                    ContentView()
-//                }
-//            }
+                .buttonStyle(RoundedCorners(color: Color.black))
+                .padding()
         }
 
     }

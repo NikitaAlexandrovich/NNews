@@ -19,7 +19,7 @@ struct ContentView: View {
             Group{
                 if internetConnection.isConnected{
                     TabView{
-                        NewsListView()
+                        NewsTabView()
                             .tabItem{
                                 Label("News", systemImage: "newspaper")
                             }

@@ -9,7 +9,11 @@ import SwiftUI
 
 struct NewsListView: View {
     var body: some View {
-        Text("News List View")
+        VStack{
+            Text("News List View")
+        }
+        // in title in future use (headlines or theme news)
+        .navigationBarTitle("News", displayMode: .automatic)
     }
 }
 
