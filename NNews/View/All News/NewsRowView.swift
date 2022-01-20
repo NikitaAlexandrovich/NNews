@@ -68,12 +68,13 @@ struct NewsRowView: View {
                     } label: {
                         Image(systemName: "bookmark")
                     }
-                    .padding(.horizontal)
+                    .buttonStyle(.bordered)
                     Button{
-                        
+                        sharedURL(url: newsRow.articleURL)
                     } label: {
                         Image(systemName: "square.and.arrow.up")
                     }
+                    .buttonStyle(.bordered)
                 }
                 .padding(.top)
             }
@@ -96,4 +97,16 @@ struct NewsRowView_Previews: PreviewProvider {
         }
         .previewDevice("iPhone 11")
     }
+}
+
+extension View{
+    
+    func sharedURL(url: URL){
+        let sharedActivity = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?
+                    .keyWindow?
+                    .rootViewController?
+                    .present(sharedActivity, animated: true)
+    }
+    
 }

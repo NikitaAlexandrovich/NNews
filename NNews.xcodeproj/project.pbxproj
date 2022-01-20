@@ -32,8 +32,13 @@
 		AB47B284279618C4000B21CA /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47B283279618C3000B21CA /* ButtonStyle.swift */; };
 		AB47B28627962DE7000B21CA /* NewsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47B28527962DE5000B21CA /* NewsTabView.swift */; };
 		AB47B28827962F7B000B21CA /* NewsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47B28727962F7B000B21CA /* NewsRowView.swift */; };
+		ABB0AD9F2799A6C20002FD43 /* WebCustomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB0AD9E2799A6C20002FD43 /* WebCustomModel.swift */; };
+		ABB0ADA12799A71E0002FD43 /* WebCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB0ADA02799A71E0002FD43 /* WebCustomView.swift */; };
+		ABB0ADA52799C1540002FD43 /* SharedLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB0ADA42799C1540002FD43 /* SharedLink.swift */; };
+		ABB0ADA72799FA380002FD43 /* SourcesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB0ADA62799FA380002FD43 /* SourcesResponse.swift */; };
 		ABB9BB0F279839ED00B7B9BC /* previewData.json in Resources */ = {isa = PBXBuildFile; fileRef = ABB9BB0E279839ED00B7B9BC /* previewData.json */; };
 		ABB9BB1127983AAB00B7B9BC /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB9BB1027983AAB00B7B9BC /* APIResponse.swift */; };
+		ABB9BB132798877400B7B9BC /* WebISafarinterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB9BB122798877400B7B9BC /* WebISafarinterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,8 +67,13 @@
 		AB47B283279618C3000B21CA /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		AB47B28527962DE5000B21CA /* NewsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTabView.swift; sourceTree = "<group>"; };
 		AB47B28727962F7B000B21CA /* NewsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRowView.swift; sourceTree = "<group>"; };
+		ABB0AD9E2799A6C20002FD43 /* WebCustomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCustomModel.swift; sourceTree = "<group>"; };
+		ABB0ADA02799A71E0002FD43 /* WebCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCustomView.swift; sourceTree = "<group>"; };
+		ABB0ADA42799C1540002FD43 /* SharedLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLink.swift; sourceTree = "<group>"; };
+		ABB0ADA62799FA380002FD43 /* SourcesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesResponse.swift; sourceTree = "<group>"; };
 		ABB9BB0E279839ED00B7B9BC /* previewData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = previewData.json; sourceTree = "<group>"; };
 		ABB9BB1027983AAB00B7B9BC /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		ABB9BB122798877400B7B9BC /* WebISafarinterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebISafarinterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +134,7 @@
 		AB47B2492791E7C1000B21CA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ABB0AD9D2799A5EE0002FD43 /* WebViewGroup */,
 				AB47B2802795D3B5000B21CA /* All News */,
 				AB47B27E2795D359000B21CA /* Search News */,
 				AB47B27F2795D380000B21CA /* Sources */,
@@ -132,6 +143,7 @@
 				AB47B25527922BD0000B21CA /* OnBoardingView.swift */,
 				AB47B25D27942A41000B21CA /* NetworkWarningView.swift */,
 				AB47B28127960393000B21CA /* SecretView.swift */,
+				ABB0ADA42799C1540002FD43 /* SharedLink.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,6 +163,7 @@
 			children = (
 				AB47B2632794B74B000B21CA /* NewsArticle.swift */,
 				ABB9BB1027983AAB00B7B9BC /* APIResponse.swift */,
+				ABB0ADA62799FA380002FD43 /* SourcesResponse.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -198,6 +211,16 @@
 				AB47B28527962DE5000B21CA /* NewsTabView.swift */,
 			);
 			path = "All News";
+			sourceTree = "<group>";
+		};
+		ABB0AD9D2799A5EE0002FD43 /* WebViewGroup */ = {
+			isa = PBXGroup;
+			children = (
+				ABB9BB122798877400B7B9BC /* WebISafarinterface.swift */,
+				ABB0AD9E2799A6C20002FD43 /* WebCustomModel.swift */,
+				ABB0ADA02799A71E0002FD43 /* WebCustomView.swift */,
+			);
+			path = WebViewGroup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,9 +303,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB0AD9F2799A6C20002FD43 /* WebCustomModel.swift in Sources */,
 				AB47B28827962F7B000B21CA /* NewsRowView.swift in Sources */,
 				AB47B25C27939A9F000B21CA /* NetworkManager.swift in Sources */,
 				AB47B25E27942A42000B21CA /* NetworkWarningView.swift in Sources */,
+				ABB0ADA52799C1540002FD43 /* SharedLink.swift in Sources */,
 				AB47B23E2791E71F000B21CA /* ContentView.swift in Sources */,
 				AB47B28627962DE7000B21CA /* NewsTabView.swift in Sources */,
 				AB47B2752795BFFE000B21CA /* NotAuthorizedAccountView.swift in Sources */,
@@ -290,6 +315,7 @@
 				AB47B26F2795A06D000B21CA /* AccountView.swift in Sources */,
 				AB47B26D2795A02F000B21CA /* SourceNewsView.swift in Sources */,
 				AB47B2642794B74C000B21CA /* NewsArticle.swift in Sources */,
+				ABB9BB132798877400B7B9BC /* WebISafarinterface.swift in Sources */,
 				AB47B26127948CBD000B21CA /* LocationManager.swift in Sources */,
 				AB47B25627922BD0000B21CA /* OnBoardingView.swift in Sources */,
 				AB47B26A27959F8A000B21CA /* BookmarkNewsTabView.swift in Sources */,
@@ -297,6 +323,8 @@
 				ABB9BB1127983AAB00B7B9BC /* APIResponse.swift in Sources */,
 				AB47B26627959EF3000B21CA /* NewsListView.swift in Sources */,
 				AB47B26827959F0A000B21CA /* SearchNewsView.swift in Sources */,
+				ABB0ADA12799A71E0002FD43 /* WebCustomView.swift in Sources */,
+				ABB0ADA72799FA380002FD43 /* SourcesResponse.swift in Sources */,
 				AB47B24B2791E7F4000B21CA /* LoginPage.swift in Sources */,
 				AB47B284279618C4000B21CA /* ButtonStyle.swift in Sources */,
 				AB47B28227960395000B21CA /* SecretView.swift in Sources */,

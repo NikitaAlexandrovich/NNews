@@ -9,7 +9,11 @@ import SwiftUI
 
 struct SecretView: View {
     var body: some View {
-        Text("Secret view")
+        VStack{
+            Section{
+                TextField("", text: <#T##Binding<String>#>)
+            }
+        }
     }
 }
 

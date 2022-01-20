@@ -10,8 +10,7 @@ import SwiftUI
 struct NewsTabView: View {
     var body: some View {
         NavigationView{
-//            NewsListView()
-            Text("kk")
+            NewsListView(newsArticles: NewsArticle.previewData)
         }
     }
 }
