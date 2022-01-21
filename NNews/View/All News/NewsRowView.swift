@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct NewsRowView: View {
+    
+    @AppStorage("log_Status") var log_Status = false
     let newsRow: NewsArticle
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 1){
             VStack(alignment: .leading, spacing: 8){
@@ -63,12 +66,14 @@ struct NewsRowView: View {
                     
                     Spacer()
                     
-                    Button{
-                        
-                    } label: {
-                        Image(systemName: "bookmark")
+                    if log_Status{
+                        Button{
+                            
+                        } label: {
+                            Image(systemName: "bookmark")
+                        }
+                        .buttonStyle(.bordered)
                     }
-                    .buttonStyle(.bordered)
                     Button{
                         sharedURL(url: newsRow.articleURL)
                     } label: {
