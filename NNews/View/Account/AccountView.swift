@@ -78,8 +78,10 @@ struct AccountView: View {
 }
 
 struct AccountView_Previews: PreviewProvider {
+    @StateObject static var APIDataStore = APIDataStoreModel.shared
     static var previews: some View {
         AccountView()
+            .environmentObject(APIDataStore)
     }
 }
 

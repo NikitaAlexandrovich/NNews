@@ -12,9 +12,11 @@ import GoogleSignIn
 @main
 struct NNewsApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject static var APIDataStore = APIDataStoreModel.shared
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(NNewsApp.APIDataStore)
         }
     }
 }

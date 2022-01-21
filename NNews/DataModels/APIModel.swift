@@ -12,14 +12,16 @@ struct APIModel{
     var everything: String
     var topHeadlines: String
     var APIKey: String
-    
-    var souce: String
+    var source: String
     
     init() {
         baseAPI = "https://newsapi.org/v2/"
         everything = "everything"
         topHeadlines = "top-headlines"
         APIKey = "39b2bb9626224f81839de256103cf2ae"
-        souce = "sources"
+        source = "sources"
     }
 }
+
+extension APIModel: Codable{}
+extension APIModel: Equatable{}

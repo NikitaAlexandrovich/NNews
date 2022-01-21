@@ -10,11 +10,11 @@ import SwiftUI
 
 struct SecretView: View {
     
-    @AppStorage("APIKey") var APIKey = "39b2bb9626224f81839de256103cf2ae"
-    @AppStorage("baseAPI") var baseAPI = "https://newsapi.org/v2/"
-    @AppStorage("everything") var everything = "everything"
-    @AppStorage("topHeadlines") var topHeadlines = "top-headlines"
-    @AppStorage("souces") var souce = "sources"
+//    @AppStorage("APIKey") var APIKey = "39b2bb9626224f81839de256103cf2ae"
+//    @AppStorage("baseAPI") var baseAPI = "https://newsapi.org/v2/"
+//    @AppStorage("everything") var everything = "everything"
+//    @AppStorage("topHeadlines") var topHeadlines = "top-headlines"
+//    @AppStorage("souces") var souce = "sources"
     
     @State var apiKey: String = ""
     @State var based: String = ""
@@ -22,14 +22,19 @@ struct SecretView: View {
     @State var topheadlinesPart: String = ""
     @State var soucePart: String = ""
     
+    @EnvironmentObject var APIDataStore: APIDataStoreModel
+    
     @State var defaultAPI = APIModel()
     
     var body: some View {
+        
+//        var apiSaved = self.apiSaved
+        
         List{
             VStack{
                 VStack{
                     Text("In process API Key: ")
-                    Text("\(APIKey)")
+                    Text("\(APIDataStore.APIBased.APIKey)")
                         .multilineTextAlignment(.trailing)
                     TextField("New API key", text: $apiKey)
                         .textFieldStyle(.roundedBorder)
@@ -38,7 +43,7 @@ struct SecretView: View {
                 
                 VStack{
                     Text("Now use base part API: ")
-                    Text("\(baseAPI)")
+                    Text("\(APIDataStore.APIBased.baseAPI)")
                     TextField("Base API", text: $based)
                         .textFieldStyle(.roundedBorder)
                 }
@@ -46,7 +51,7 @@ struct SecretView: View {
 
                 VStack{
                     Text("Part for getting everything news: ")
-                    Text("\(everything)")
+                    Text("\(APIDataStore.APIBased.everything)")
                     TextField("Everything news", text: $everythigPart)
                         .textFieldStyle(.roundedBorder)
                 }
@@ -54,7 +59,7 @@ struct SecretView: View {
 
                 VStack{
                     Text("Part for getting top headlines news: ")
-                    Text("\(topHeadlines)")
+                    Text("\(APIDataStore.APIBased.topHeadlines)")
                     TextField("Top Headlines news", text: $topheadlinesPart)
                         .textFieldStyle(.roundedBorder)
                 }
@@ -62,7 +67,7 @@ struct SecretView: View {
                 
                 VStack{
                     Text("Part for getting sources: ")
-                    Text("\(souce)")
+                    Text("\(APIDataStore.APIBased.source)")
                     TextField("News Sources", text: $soucePart)
                         .textFieldStyle(.roundedBorder)
                 }
@@ -70,11 +75,12 @@ struct SecretView: View {
                 
                 Button(action: {
                     withAnimation(.easeInOut){
-                        APIKey = apiKey
-                        baseAPI = based
-                        everything = everythigPart
-                        topHeadlines = topheadlinesPart
-                        souce = soucePart
+                        APIDataStore.APIBased.APIKey = apiKey
+                        APIDataStore.APIBased.baseAPI = based
+                        APIDataStore.APIBased.everything = everythigPart
+                        APIDataStore.APIBased.topHeadlines = topheadlinesPart
+                        APIDataStore.APIBased.source = soucePart
+                        APIDataStore.APIDataUpdated()
                     }
                 }, label: {
                     Text("Save")
@@ -84,11 +90,12 @@ struct SecretView: View {
                 
                 Button(action: {
                     withAnimation(.easeInOut){
-                        APIKey = defaultAPI.APIKey
-                        baseAPI = defaultAPI.baseAPI
-                        everything = defaultAPI.everything
-                        topHeadlines = defaultAPI.topHeadlines
-                        souce = defaultAPI.souce
+                        APIDataStore.APIBased.APIKey = defaultAPI.APIKey
+                        APIDataStore.APIBased.baseAPI = defaultAPI.baseAPI
+                        APIDataStore.APIBased.everything = defaultAPI.everything
+                        APIDataStore.APIBased.topHeadlines = "top-headlines"
+                        APIDataStore.APIBased.source = defaultAPI.source
+                        APIDataStore.APIDataUpdated()
                     }
                 }, label: {
                     Text("Back to default")
@@ -98,10 +105,16 @@ struct SecretView: View {
             .navigationTitle("Bebug menu")
         }
     }
+    
+//    private var apiSaved: APIModel {
+//        return APIDataStore.APIBased
+//    }
 }
 
 struct SecretView_Previews: PreviewProvider {
+    @StateObject static var APIDataStore = APIDataStoreModel.shared
     static var previews: some View {
         SecretView()
+            .environmentObject(APIDataStore)
     }
 }
