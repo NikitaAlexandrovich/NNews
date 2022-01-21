@@ -14,11 +14,13 @@ struct SecretView: View {
     @AppStorage("baseAPI") var baseAPI = "https://newsapi.org/v2/"
     @AppStorage("everything") var everything = "everything"
     @AppStorage("topHeadlines") var topHeadlines = "top-headlines"
+    @AppStorage("souces") var souce = "sources"
     
     @State var apiKey: String = ""
     @State var based: String = ""
     @State var everythigPart: String = ""
     @State var topheadlinesPart: String = ""
+    @State var soucePart: String = ""
     
     @State var defaultAPI = APIModel()
     
@@ -58,12 +60,21 @@ struct SecretView: View {
                 }
                 .padding(.bottom)
                 
+                VStack{
+                    Text("Part for getting sources: ")
+                    Text("\(souce)")
+                    TextField("News Sources", text: $soucePart)
+                        .textFieldStyle(.roundedBorder)
+                }
+                .padding(.bottom)
+                
                 Button(action: {
                     withAnimation(.easeInOut){
                         APIKey = apiKey
                         baseAPI = based
                         everything = everythigPart
                         topHeadlines = topheadlinesPart
+                        souce = soucePart
                     }
                 }, label: {
                     Text("Save")
@@ -77,6 +88,7 @@ struct SecretView: View {
                         baseAPI = defaultAPI.baseAPI
                         everything = defaultAPI.everything
                         topHeadlines = defaultAPI.topHeadlines
+                        souce = defaultAPI.souce
                     }
                 }, label: {
                     Text("Back to default")
