@@ -10,12 +10,6 @@ import SwiftUI
 
 struct SecretView: View {
     
-//    @AppStorage("APIKey") var APIKey = "39b2bb9626224f81839de256103cf2ae"
-//    @AppStorage("baseAPI") var baseAPI = "https://newsapi.org/v2/"
-//    @AppStorage("everything") var everything = "everything"
-//    @AppStorage("topHeadlines") var topHeadlines = "top-headlines"
-//    @AppStorage("souces") var souce = "sources"
-    
     @State var apiKey: String = ""
     @State var based: String = ""
     @State var everythigPart: String = ""
@@ -93,14 +87,14 @@ struct SecretView: View {
                         APIDataStore.APIBased.APIKey = defaultAPI.APIKey
                         APIDataStore.APIBased.baseAPI = defaultAPI.baseAPI
                         APIDataStore.APIBased.everything = defaultAPI.everything
-                        APIDataStore.APIBased.topHeadlines = "top-headlines"
+                        APIDataStore.APIBased.topHeadlines = defaultAPI.topHeadlines
                         APIDataStore.APIBased.source = defaultAPI.source
                         APIDataStore.APIDataUpdated()
                     }
                 }, label: {
                     Text("Back to default")
                 })
-                .buttonStyle(RoundedCorners(color: Color.black))
+                    .buttonStyle(RoundedCorners(color: Color.black))
             }
             .navigationTitle("Bebug menu")
         }

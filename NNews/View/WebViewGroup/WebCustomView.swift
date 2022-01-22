@@ -13,6 +13,8 @@ struct WebCustomView: View {
     
     @StateObject var model = WebViewModel()
     @State private var isSharePresented: Bool = false
+    
+    @AppStorage("log_Status") var log_Status = false
         
     var body: some View {
         NavigationView{
@@ -36,10 +38,12 @@ struct WebCustomView: View {
                         
                         Spacer()
                         
-                        Button(action: {
-                            // TODO: Create toogle bookmark
-                        }) {
-                            Image(systemName: "bookmark")
+                        if log_Status{
+                            Button(action: {
+                                // TODO: Create toogle bookmark
+                            }) {
+                                Image(systemName: "bookmark")
+                            }
                         }
                     }
                 }

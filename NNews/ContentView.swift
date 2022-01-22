@@ -42,6 +42,7 @@ struct ContentView: View {
                     }
                     .onAppear {
                         notificationManager.cleanNotification()
+                        internetConnection.updateStatus()
                     }
                 }
                 else{

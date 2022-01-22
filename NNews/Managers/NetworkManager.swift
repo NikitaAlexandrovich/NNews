@@ -8,6 +8,7 @@
 import Foundation
 import Network
 
+@MainActor
 class NetworkManager: ObservableObject{
     
     @Published var isConnected = true
@@ -24,7 +25,8 @@ class NetworkManager: ObservableObject{
         updateStatus()
     }
     
-    func updateStatus(){
+    func updateStatus() {
+        
         monitor.pathUpdateHandler = { path in
             DispatchQueue.main.async { [self] in
                 self.isConnected = path.status == .satisfied

@@ -24,11 +24,6 @@ class APIDataStoreModel: ObservableObject {
         APIBased = await APIBasedStore.load() ?? APIModel()
     }
     
-//    func addBookmark(for apiModel: APIModel) {
-//        APIModel = apiModel
-//        bookmarkUpdated()
-//    }
-    
     func APIDataUpdated() {
         let APIBased = self.APIBased
         Task {
