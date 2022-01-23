@@ -24,6 +24,13 @@ enum Country: String, CaseIterable{
         }
         return rawValue.prefix(2).capitalized
     }
+    
+    var getLocation: String {
+        if self == .My_Location {
+            return "My location"
+        }
+        return String(rawValue.dropFirst(3))
+    }
 }
 
 extension Country: Identifiable {

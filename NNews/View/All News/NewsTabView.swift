@@ -21,7 +21,15 @@ struct NewsTabView: View {
                 .onAppear{
                     updateNews()
                 }
-                .navigationTitle(getNewsModel.selectedCategory.topHeadlinesGet)
+                .onChange(of: getNewsModel.selectedCountry, perform: { news in
+                    updateNews()
+                })
+                .onChange(of: getNewsModel.selectedCategory, perform: { news in
+                    updateNews()
+                })
+                .navigationBarTitle(getNewsModel.selectedCategory.topHeadlinesGet, displayMode: .automatic)
+                .navigationBarItems(trailing: categoryMenu)
+                .navigationBarItems(trailing: countryMenu)
         }
     }
     
@@ -52,6 +60,30 @@ struct NewsTabView: View {
     private func updateNews(){
         async {
             await getNewsModel.loadNews()
+        }
+    }
+    
+    private var countryMenu: some View{
+        Menu{
+            Picker("Location", selection: $getNewsModel.selectedCountry){
+                ForEach(Country.allCases){
+                    Text($0.getLocation)
+                }
+            }
+        } label: {
+            Image(systemName: "location")
+        }
+    }
+    
+    private var categoryMenu: some View{
+        Menu{
+            Picker("Location", selection: $getNewsModel.selectedCategory){
+                ForEach(Category.allCases){
+                    Text($0.topHeadlinesGet)
+                }
+            }
+        } label: {
+            Image(systemName: "filemenu.and.selection")
         }
     }
     

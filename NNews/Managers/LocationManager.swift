@@ -6,12 +6,10 @@
 //
 
 import Foundation
-//Text(locale.regionCode ?? "NaN")
-//let locale = Locale.current
-//    print(locale.regionCode)
-//      Text(locale.regionCode ?? "NaN")
-//            Group{
-//                if locale.regionCode.lowercased() != "ru"{
-//                    Text("You location not avaible for news, for default contry set automaticly first contry in list.")
-//                }
-//            }
+
+struct UserLocation{
+    let userLocale = Locale.current
+    func getCodeCountry() -> String{
+        return userLocale.regionCode ?? "NaN"
+    }
+}
