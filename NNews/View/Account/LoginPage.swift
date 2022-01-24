@@ -13,9 +13,11 @@ struct LoginPage: View {
         
     @AppStorage("log_Status") var log_Status = false
     
-    @AppStorage("userName") var userName = "NaN"
-    @AppStorage("userEmail") var userEmail = "NaN"
-    @AppStorage("userImage") var userImage = URL(fileURLWithPath: "")
+//    @AppStorage("userName") var userName = "NaN"
+//    @AppStorage("userEmail") var userEmail = "NaN"
+//    @AppStorage("userImage") var userImage = URL(fileURLWithPath: "")
+    
+    @EnvironmentObject var UserDataStore: UserDataStoreModel
     
     @StateObject private var notificationManager = NotificationManager()
     
@@ -82,16 +84,16 @@ struct LoginPage: View {
                 guard let user = result?.user else {
                     return
                 }
-                
-                print(user.displayName ?? "Success")
 
                 withAnimation{
-                    userImage = user.photoURL ?? URL(fileURLWithPath: "")
-                    userName = user.displayName ?? "NaN"
-                    userEmail = user.email ?? "NaN"
+                    
+                    UserDataStore.accountInformation.userImage = user.photoURL ?? URL(fileURLWithPath: "")
+                    UserDataStore.accountInformation.userName = user.displayName ?? "NaN"
+                    UserDataStore.accountInformation.userEmail = user.email ?? "NaN"
+                    UserDataStore.UserDataUpdated()
                     log_Status = true
+                    
                 }
-            
             }
         }
     }

@@ -10,6 +10,10 @@ import SwiftUI
 struct NewsRowView: View {
     
     @AppStorage("log_Status") var log_Status = false
+    
+    @EnvironmentObject var savedNews: SaveNewsDataStoreModel
+    
+    
     let newsRow: NewsArticle
     
     var body: some View {
@@ -31,10 +35,12 @@ struct NewsRowView: View {
                             .frame(alignment: .center)
                         Spacer()
                     }
+                    
                 case .success(let image):
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
+                        .scaledToFill()
                         .cornerRadius(10)
                         .shadow(radius: 3)
                         .padding()
@@ -51,7 +57,7 @@ struct NewsRowView: View {
                 }
             }
             .frame(minHeight: 200, maxHeight: 300)
-//            .clipped()
+            .clipped()
             
             VStack(alignment: .leading, spacing: 8){
                 Text(newsRow.descriptionText)
@@ -68,9 +74,13 @@ struct NewsRowView: View {
                     
                     if log_Status{
                         Button{
-                            
+                            if savedNews.checkStatus(for: newsRow) {
+                                savedNews.deleteNews(for: newsRow)
+                            } else {
+                                savedNews.addNews(for: newsRow)
+                            }
                         } label: {
-                            Image(systemName: "bookmark")
+                            Image(systemName: savedNews.checkStatus(for: newsRow) ? "bookmark.fill" : "bookmark")
                         }
                         .buttonStyle(.bordered)
                     }
@@ -84,8 +94,6 @@ struct NewsRowView: View {
                 .padding(.top)
             }
             .padding()
-            
-            
         }
     }
 }

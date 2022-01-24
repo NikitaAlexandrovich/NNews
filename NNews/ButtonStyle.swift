@@ -18,6 +18,7 @@ struct RoundedCorners: ButtonStyle {
             configuration.label
                 .frame(maxWidth: .infinity)
                 .background(Color.black)
+                .scaleEffect(configuration.isPressed ? 0.95 : 1)
                 .padding(10)
                 .overlay(RoundedRectangle(cornerRadius: 10)
                             .stroke(.white, lineWidth: 1))
@@ -25,6 +26,7 @@ struct RoundedCorners: ButtonStyle {
             configuration.label
                 .frame(maxWidth: .infinity)
                 .background(Color.white)
+                .scaleEffect(configuration.isPressed ? 0.95 : 1)
                 .padding(10)
                 .overlay(RoundedRectangle(cornerRadius: 10)
                            .stroke(color, lineWidth: 1))

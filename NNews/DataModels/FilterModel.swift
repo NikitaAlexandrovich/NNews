@@ -27,6 +27,8 @@ enum Country: String, CaseIterable{
     
     var getLocation: String {
         if self == .My_Location {
+//            let local = UserLocation()
+//            return "My location \(local.getCodeCountry())"
             return "My location"
         }
         return String(rawValue.dropFirst(3))

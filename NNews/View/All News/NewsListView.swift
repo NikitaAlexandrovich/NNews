@@ -29,7 +29,7 @@ struct NewsListView: View {
         
         .listStyle(.plain)
         .sheet(item: $selectedArticle){
-            WebCustomView(urlNews: $0.articleURL)
+            WebCustomView(newsArticle: $0)
         }
     }
 }

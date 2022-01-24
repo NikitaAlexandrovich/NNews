@@ -9,7 +9,10 @@ import SwiftUI
 
 struct NotAuthorizedAccountView: View {
     var body: some View {
-        Text("Please authorise with Google in account tab")
+        Text("Please authorise with Google in account tab.")
+            .bold()
+            .font(.system(size: 25))
+            .multilineTextAlignment(.center)
     }
 }
 

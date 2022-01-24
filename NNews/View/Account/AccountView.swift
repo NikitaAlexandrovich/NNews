@@ -12,11 +12,11 @@ import GoogleSignIn
 struct AccountView: View {
     
     @AppStorage("log_Status") var log_Status = false
-    @AppStorage("userName") var userName = "NaN"
-    @AppStorage("userImage") var userImage = URL(fileURLWithPath: "")
-    @AppStorage("userEmail") var userEmail = "NaN"
     
     @StateObject private var notificationManager = NotificationManager()
+    
+    @EnvironmentObject var APIDataStore: APIDataStoreModel
+    @EnvironmentObject var UserDataStore: UserDataStoreModel
     
     var body: some View {
         if log_Status{
@@ -24,16 +24,16 @@ struct AccountView: View {
                 VStack(){
                     VStack(){
                         NavigationLink(destination: SecretView()) {
-                        Image(uiImage: userImage.load())
+                            Image(uiImage: UserDataStore.accountInformation.userImage.load())
                             .renderingMode(.original)
                             .clipShape(Circle())
                             .shadow(radius: 10)
                             .overlay(Circle().stroke(Color.white, lineWidth: 5))
                         }
-                        Text("\(userName)")
+                        Text("\(UserDataStore.accountInformation.userName)")
                             .fontWeight(.bold)
                             .padding()
-                        Text("\(userEmail)")
+                        Text("\(UserDataStore.accountInformation.userEmail)")
                             .opacity(0.5)
                         
                     }
@@ -78,10 +78,14 @@ struct AccountView: View {
 }
 
 struct AccountView_Previews: PreviewProvider {
+    
     @StateObject static var APIDataStore = APIDataStoreModel.shared
+    @StateObject static var UserDataStore = UserDataStoreModel.shared
+    
     static var previews: some View {
         AccountView()
             .environmentObject(APIDataStore)
+            .environmentObject(UserDataStore)
     }
 }
 

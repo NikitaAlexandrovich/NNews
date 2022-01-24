@@ -9,11 +9,16 @@ import SwiftUI
 
 struct BookmarkedNewsView: View {
     
+    @EnvironmentObject var savedNews: SaveNewsDataStoreModel
+    
     var body: some View {
-        VStack{
-            Text("Тут выводятся после многоих проверок список сохраненных новостей")
+        if savedNews.savedNews.isEmpty {
+            EmptySaveNewsView()
         }
-        .navigationBarTitle("Saved news", displayMode: .automatic)
+        else {
+            NewsListView(newsArticles: savedNews.savedNews)
+                .navigationBarTitle("Saved news", displayMode: .automatic)
+        }
     }
 }
 

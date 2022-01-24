@@ -58,7 +58,7 @@ struct NewsTabView: View {
     }
     
     private func updateNews(){
-        async {
+        Task{
             await getNewsModel.loadNews()
         }
     }
