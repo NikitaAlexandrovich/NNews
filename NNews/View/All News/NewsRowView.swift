@@ -13,7 +13,6 @@ struct NewsRowView: View {
     
     @EnvironmentObject var savedNews: SaveNewsDataStoreModel
     
-    
     let newsRow: NewsArticle
     
     var body: some View {
@@ -73,14 +72,18 @@ struct NewsRowView: View {
                     Spacer()
                     
                     if log_Status{
+                        let rowNews = self.newsRow
+                        let modelSave = UserSaveNewsModel(userEmail: UserDataStoreModel.shared.accountInformation.userEmail, userSavedNews: rowNews)
                         Button{
-                            if savedNews.checkStatus(for: newsRow) {
-                                savedNews.deleteNews(for: newsRow)
+                            if savedNews.checkStatus(for: modelSave) {
+                                
+                                savedNews.deleteNews(for: modelSave)
+                                
                             } else {
-                                savedNews.addNews(for: newsRow)
+                                savedNews.addNews(for: modelSave)
                             }
                         } label: {
-                            Image(systemName: savedNews.checkStatus(for: newsRow) ? "bookmark.fill" : "bookmark")
+                            Image(systemName: savedNews.checkStatus(for: modelSave) ? "bookmark.fill" : "bookmark")
                         }
                         .buttonStyle(.bordered)
                     }

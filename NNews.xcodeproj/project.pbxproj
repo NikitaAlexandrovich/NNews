@@ -51,6 +51,7 @@
 		ABB9BB0F279839ED00B7B9BC /* previewData.json in Resources */ = {isa = PBXBuildFile; fileRef = ABB9BB0E279839ED00B7B9BC /* previewData.json */; };
 		ABB9BB1127983AAB00B7B9BC /* APINewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB9BB1027983AAB00B7B9BC /* APINewsResponse.swift */; };
 		ABB9BB132798877400B7B9BC /* WebISafarinterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB9BB122798877400B7B9BC /* WebISafarinterface.swift */; };
+		ABCB711B27A0317F00EBF38A /* UserSaveNewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB711A27A0317F00EBF38A /* UserSaveNewsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		ABB9BB0E279839ED00B7B9BC /* previewData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = previewData.json; sourceTree = "<group>"; };
 		ABB9BB1027983AAB00B7B9BC /* APINewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APINewsResponse.swift; sourceTree = "<group>"; };
 		ABB9BB122798877400B7B9BC /* WebISafarinterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebISafarinterface.swift; sourceTree = "<group>"; };
+		ABCB711A27A0317F00EBF38A /* UserSaveNewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSaveNewsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 				ABB0ADB9279F028F0002FD43 /* UserDataStoreModel.swift */,
 				ABB0ADBD279F13C70002FD43 /* SaveNewsDataStoreModel.swift */,
 				ABB0ADBB279F02FD0002FD43 /* UserAccountModel.swift */,
+				ABCB711A27A0317F00EBF38A /* UserSaveNewsModel.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				AB47B25E27942A42000B21CA /* NetworkWarningView.swift in Sources */,
 				ABB0ADA52799C1540002FD43 /* SharedLink.swift in Sources */,
 				AB47B23E2791E71F000B21CA /* ContentView.swift in Sources */,
+				ABCB711B27A0317F00EBF38A /* UserSaveNewsModel.swift in Sources */,
 				ABB0ADBA279F02900002FD43 /* UserDataStoreModel.swift in Sources */,
 				AB47B28627962DE7000B21CA /* NewsTabView.swift in Sources */,
 				AB47B2752795BFFE000B21CA /* NotAuthorizedAccountView.swift in Sources */,

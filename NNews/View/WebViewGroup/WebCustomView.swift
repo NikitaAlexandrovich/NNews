@@ -42,14 +42,19 @@ struct WebCustomView: View {
                         Spacer()
                         
                         if log_Status{
+                            let rowNews = self.newsArticle
+                            let modelSave = UserSaveNewsModel(userEmail: UserDataStoreModel.shared.accountInformation.userEmail, userSavedNews: rowNews)
+                            
                             Button(action: {
-                                if savedNews.checkStatus(for: newsArticle) {
-                                    savedNews.deleteNews(for: newsArticle)
+                                if savedNews.checkStatus(for: modelSave) {
+                                    
+                                    savedNews.deleteNews(for: modelSave)
+                                    
                                 } else {
-                                    savedNews.addNews(for: newsArticle)
+                                    savedNews.addNews(for: modelSave)
                                 }
                             }) {
-                                Image(systemName: savedNews.checkStatus(for: newsArticle) ? "bookmark.fill" : "bookmark")
+                                Image(systemName: savedNews.checkStatus(for: modelSave) ? "bookmark.fill" : "bookmark")
                             }
                         }
                     }

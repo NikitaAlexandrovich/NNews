@@ -13,10 +13,6 @@ struct LoginPage: View {
         
     @AppStorage("log_Status") var log_Status = false
     
-//    @AppStorage("userName") var userName = "NaN"
-//    @AppStorage("userEmail") var userEmail = "NaN"
-//    @AppStorage("userImage") var userImage = URL(fileURLWithPath: "")
-    
     @EnvironmentObject var UserDataStore: UserDataStoreModel
     
     @StateObject private var notificationManager = NotificationManager()
