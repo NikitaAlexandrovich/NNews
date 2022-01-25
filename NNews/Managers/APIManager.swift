@@ -19,7 +19,10 @@ struct APIManager{
     }()
     
     func getNews(from category: Category, country: Country) async throws -> [NewsArticle] {
-        let newsUrl = await createNewsURL(from: category, country: country)
+        try await getAllNews(newsUrl: createNewsURL(from: category, country: country))
+    }
+    
+    private func getAllNews(newsUrl: URL) async throws -> [NewsArticle] {
         let (data, response) = try await session.data(from: newsUrl)
         
         guard let response = response as? HTTPURLResponse else{
@@ -46,6 +49,21 @@ struct APIManager{
         newsUrl += apiStruct.topHeadlines
         newsUrl += "?category=\(category.rawValue)&country=\(country.getCoutry)&apiKey="
         newsUrl += apiStruct.APIKey
+        return URL(string: newsUrl)!
+    }
+    
+    func searchNews(for qKey: String) async throws -> [NewsArticle] {
+        try await getAllNews(newsUrl: createSearchNewsURL(from: qKey))
+    }
+    
+    @MainActor private func createSearchNewsURL(from qKey: String) -> URL{
+        let query = qKey.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? qKey
+        let apiStruct = APIDataStoreModel.shared.APIBased
+        var newsUrl = apiStruct.baseAPI
+        newsUrl += apiStruct.everything
+        newsUrl += "?q=\(query)&apiKey="
+        newsUrl += apiStruct.APIKey
+        print(newsUrl)
         return URL(string: newsUrl)!
     }
 }

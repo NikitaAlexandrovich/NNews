@@ -52,6 +52,7 @@
 		ABB9BB1127983AAB00B7B9BC /* APINewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB9BB1027983AAB00B7B9BC /* APINewsResponse.swift */; };
 		ABB9BB132798877400B7B9BC /* WebISafarinterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB9BB122798877400B7B9BC /* WebISafarinterface.swift */; };
 		ABCB711B27A0317F00EBF38A /* UserSaveNewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB711A27A0317F00EBF38A /* UserSaveNewsModel.swift */; };
+		ABCB711D27A0AFEA00EBF38A /* GetSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB711C27A0AFEA00EBF38A /* GetSearchModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		ABB9BB1027983AAB00B7B9BC /* APINewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APINewsResponse.swift; sourceTree = "<group>"; };
 		ABB9BB122798877400B7B9BC /* WebISafarinterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebISafarinterface.swift; sourceTree = "<group>"; };
 		ABCB711A27A0317F00EBF38A /* UserSaveNewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSaveNewsModel.swift; sourceTree = "<group>"; };
+		ABCB711C27A0AFEA00EBF38A /* GetSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSearchModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				ABB0ADBD279F13C70002FD43 /* SaveNewsDataStoreModel.swift */,
 				ABB0ADBB279F02FD0002FD43 /* UserAccountModel.swift */,
 				ABCB711A27A0317F00EBF38A /* UserSaveNewsModel.swift */,
+				ABCB711C27A0AFEA00EBF38A /* GetSearchModel.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				AB47B284279618C4000B21CA /* ButtonStyle.swift in Sources */,
 				ABB0ADAD279B1E180002FD43 /* FilterModel.swift in Sources */,
 				AB47B28227960395000B21CA /* SecretView.swift in Sources */,
+				ABCB711D27A0AFEA00EBF38A /* GetSearchModel.swift in Sources */,
 				AB47B23C2791E71F000B21CA /* NNewsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
