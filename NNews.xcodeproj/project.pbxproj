@@ -53,6 +53,10 @@
 		ABB9BB132798877400B7B9BC /* WebISafarinterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB9BB122798877400B7B9BC /* WebISafarinterface.swift */; };
 		ABCB711B27A0317F00EBF38A /* UserSaveNewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB711A27A0317F00EBF38A /* UserSaveNewsModel.swift */; };
 		ABCB711D27A0AFEA00EBF38A /* GetSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB711C27A0AFEA00EBF38A /* GetSearchModel.swift */; };
+		ABCB711F27A0C79000EBF38A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABCB711E27A0C79000EBF38A /* LaunchScreen.storyboard */; };
+		ABCB712127A19D0700EBF38A /* SourcesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB712027A19D0600EBF38A /* SourcesViewModel.swift */; };
+		ABCB712327A19E2800EBF38A /* SourcesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB712227A19E2800EBF38A /* SourcesListView.swift */; };
+		ABCB712527A19E9E00EBF38A /* SourceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB712427A19E9D00EBF38A /* SourceRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +106,10 @@
 		ABB9BB122798877400B7B9BC /* WebISafarinterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebISafarinterface.swift; sourceTree = "<group>"; };
 		ABCB711A27A0317F00EBF38A /* UserSaveNewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSaveNewsModel.swift; sourceTree = "<group>"; };
 		ABCB711C27A0AFEA00EBF38A /* GetSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSearchModel.swift; sourceTree = "<group>"; };
+		ABCB711E27A0C79000EBF38A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ABCB712027A19D0600EBF38A /* SourcesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesViewModel.swift; sourceTree = "<group>"; };
+		ABCB712227A19E2800EBF38A /* SourcesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesListView.swift; sourceTree = "<group>"; };
+		ABCB712427A19E9D00EBF38A /* SourceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +179,7 @@
 				AB47B26B27959F9E000B21CA /* Account */,
 				AB47B25527922BD0000B21CA /* OnBoardingView.swift */,
 				ABB0ADA42799C1540002FD43 /* SharedLink.swift */,
+				ABCB711E27A0C79000EBF38A /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +211,7 @@
 				ABB0ADBB279F02FD0002FD43 /* UserAccountModel.swift */,
 				ABCB711A27A0317F00EBF38A /* UserSaveNewsModel.swift */,
 				ABCB711C27A0AFEA00EBF38A /* GetSearchModel.swift */,
+				ABCB712027A19D0600EBF38A /* SourcesViewModel.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -239,6 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				AB47B26C2795A02F000B21CA /* SourceNewsView.swift */,
+				ABCB712227A19E2800EBF38A /* SourcesListView.swift */,
+				ABCB712427A19E9D00EBF38A /* SourceRowView.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -342,6 +354,7 @@
 				AB47B2432791E720000B21CA /* Preview Assets.xcassets in Resources */,
 				AB47B2402791E720000B21CA /* Assets.xcassets in Resources */,
 				AB47B2532791F689000B21CA /* GoogleService-Info.plist in Resources */,
+				ABCB711F27A0C79000EBF38A /* LaunchScreen.storyboard in Resources */,
 				ABB9BB0F279839ED00B7B9BC /* previewData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +379,8 @@
 				ABCB711B27A0317F00EBF38A /* UserSaveNewsModel.swift in Sources */,
 				ABB0ADBA279F02900002FD43 /* UserDataStoreModel.swift in Sources */,
 				AB47B28627962DE7000B21CA /* NewsTabView.swift in Sources */,
+				ABCB712327A19E2800EBF38A /* SourcesListView.swift in Sources */,
+				ABCB712127A19D0700EBF38A /* SourcesViewModel.swift in Sources */,
 				AB47B2752795BFFE000B21CA /* NotAuthorizedAccountView.swift in Sources */,
 				AB47B25A27938441000B21CA /* NotificationManager.swift in Sources */,
 				AB47B26F2795A06D000B21CA /* AccountView.swift in Sources */,
@@ -386,6 +401,7 @@
 				ABB0ADA12799A71E0002FD43 /* WebCustomView.swift in Sources */,
 				ABB0ADA72799FA380002FD43 /* SourcesResponse.swift in Sources */,
 				AB47B24B2791E7F4000B21CA /* LoginPage.swift in Sources */,
+				ABCB712527A19E9E00EBF38A /* SourceRowView.swift in Sources */,
 				ABB0ADBC279F02FD0002FD43 /* UserAccountModel.swift in Sources */,
 				ABB0ADB3279C61150002FD43 /* GetNewsModel.swift in Sources */,
 				AB47B284279618C4000B21CA /* ButtonStyle.swift in Sources */,

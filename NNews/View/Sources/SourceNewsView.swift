@@ -8,8 +8,51 @@
 import SwiftUI
 
 struct SourceNewsView: View {
+    
+    @StateObject var sourcesModel = SourcesViewModel()
+        
     var body: some View {
-        Text("Sources view")
+        NavigationView {
+            SourcesListView(newsSources: sources)
+                .overlay(errorsView)
+                .navigationTitle("News Sources")
+        }
+        .onAppear{
+            update()
+        }
+    }
+    
+    private var sources: [NewsSource] {
+        if case .success(let sources) = sourcesModel.statys {
+            return sources
+        } else {
+            return []
+        }
+    }
+    
+    @ViewBuilder
+    private var errorsView: some View {
+        switch sourcesModel.statys {
+        case .empty:
+            EmptyServerView(text: "No sources", image: Image(systemName: "folder.badge.questionmark"))
+            
+        case .success(let sources) where sources.isEmpty:
+            EmptyServerView(text: "No Sources", image: Image(systemName: "nosign"))
+            
+        case .failure(let error):
+            ServerErrorView(text: error.localizedDescription) {
+                
+            }
+            
+        default: EmptyView()
+            
+        }
+    }
+    
+    private func update(){
+        Task{
+            await sourcesModel.sourcesArticle()
+        }
     }
 }
 

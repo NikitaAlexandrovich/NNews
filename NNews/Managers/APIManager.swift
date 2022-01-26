@@ -66,4 +66,39 @@ struct APIManager{
         print(newsUrl)
         return URL(string: newsUrl)!
     }
+    
+    private func getSources(sourcesUrl: URL) async throws -> [NewsSource] {
+        let (data, response) = try await session.data(from: sourcesUrl)
+        
+        guard let response = response as? HTTPURLResponse else{
+            throw NSError(domain: "API News", code: -1, userInfo: [NSLocalizedDescriptionKey: "Response was bad."])
+        }
+        
+        switch response.statusCode {
+        case (200...299), (400...499):
+            let response = try jsonDecoder.decode(Sources.self, from: data)
+            if response.status == "ok"{
+                return response.sources
+            } else {
+                throw NSError(domain: "API News", code: -1)
+            }
+        default:
+            throw NSError(domain: "API News", code: -1)
+        }
+    }
+    
+    @MainActor private func createGetSourcesURL() -> URL {
+        let apiStruct = APIDataStoreModel.shared.APIBased
+        var newsUrl = apiStruct.baseAPI
+        newsUrl += apiStruct.topHeadlines
+        newsUrl += "/\(apiStruct.source)?apiKey="
+        newsUrl += apiStruct.APIKey
+        print(newsUrl)
+        return URL(string: newsUrl)!
+    }
+    
+    func getListSources() async throws -> [NewsSource] {
+        try await getSources(sourcesUrl: createGetSourcesURL())
+    }
+    
 }
