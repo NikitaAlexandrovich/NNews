@@ -21,18 +21,6 @@ struct NewsArticle{
     let description: String?
     let urlToImage: String?
         
-        
-//        enum CodingKeys: String, CodingKey {
-//            case source
-//            case title
-//            case url
-//            case publishedAt
-//            case author
-//            case description
-//            case urlToImage
-//        }
-        
-        
     var descriptionText: String {
         var resultDescription = description ?? ""
         resultDescription = resultDescription.replacingOccurrences(of: "<table><tr><td></td></tr><tr><td>", with: "")

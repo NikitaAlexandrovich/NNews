@@ -34,7 +34,8 @@ struct SourceNewsView: View {
     private var errorsView: some View {
         switch sourcesModel.statys {
         case .empty:
-            EmptyServerView(text: "No sources", image: Image(systemName: "folder.badge.questionmark"))
+            ProgressView()
+//            EmptyServerView(text: "No sources", image: Image(systemName: "folder.badge.questionmark"))
             
         case .success(let sources) where sources.isEmpty:
             EmptyServerView(text: "No Sources", image: Image(systemName: "nosign"))

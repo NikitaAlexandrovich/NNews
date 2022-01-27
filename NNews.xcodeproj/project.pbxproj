@@ -58,6 +58,7 @@
 		ABCB712527A19E9E00EBF38A /* SourceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB712427A19E9D00EBF38A /* SourceRowView.swift */; };
 		ABCB712727A1B71A00EBF38A /* SelectedSourceNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB712627A1B71A00EBF38A /* SelectedSourceNewsView.swift */; };
 		ABCB712927A1FCDB00EBF38A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABCB712827A1FCDB00EBF38A /* LaunchScreen.storyboard */; };
+		ABCB712B27A214D400EBF38A /* NewsFromSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB712A27A214D300EBF38A /* NewsFromSourceViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		ABCB712427A19E9D00EBF38A /* SourceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceRowView.swift; sourceTree = "<group>"; };
 		ABCB712627A1B71A00EBF38A /* SelectedSourceNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedSourceNewsView.swift; sourceTree = "<group>"; };
 		ABCB712827A1FCDB00EBF38A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ABCB712A27A214D300EBF38A /* NewsFromSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFromSourceViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 				ABCB711A27A0317F00EBF38A /* UserSaveNewsModel.swift */,
 				ABCB711C27A0AFEA00EBF38A /* GetSearchModel.swift */,
 				ABCB712027A19D0600EBF38A /* SourcesViewModel.swift */,
+				ABCB712A27A214D300EBF38A /* NewsFromSourceViewModel.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				AB47B28227960395000B21CA /* SecretView.swift in Sources */,
 				ABCB711D27A0AFEA00EBF38A /* GetSearchModel.swift in Sources */,
 				AB47B23C2791E71F000B21CA /* NNewsApp.swift in Sources */,
+				ABCB712B27A214D400EBF38A /* NewsFromSourceViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

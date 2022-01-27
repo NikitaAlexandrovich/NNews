@@ -93,7 +93,6 @@ struct APIManager{
         newsUrl += apiStruct.topHeadlines
         newsUrl += "/\(apiStruct.source)?apiKey="
         newsUrl += apiStruct.APIKey
-        print(newsUrl)
         return URL(string: newsUrl)!
     }
     
@@ -101,4 +100,17 @@ struct APIManager{
         try await getSources(sourcesUrl: createGetSourcesURL())
     }
     
+    @MainActor private func createSelectedSourceURL(from sourceName: String) -> URL {
+        let apiStruct = APIDataStoreModel.shared.APIBased
+        var newsUrl = apiStruct.baseAPI
+        newsUrl += apiStruct.topHeadlines
+        newsUrl += "?\(apiStruct.source)=\(sourceName)&apiKey="
+        newsUrl += apiStruct.APIKey
+        print(newsUrl)
+        return URL(string: newsUrl)!
+    }
+    
+    func getNewsFromSelectedSource(from sourceID: String) async throws -> [NewsArticle] {
+        try await getAllNews(newsUrl: createSelectedSourceURL(from: sourceID))
+    }
 }

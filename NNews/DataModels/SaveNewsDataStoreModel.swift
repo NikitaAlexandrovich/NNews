@@ -66,8 +66,10 @@ class SaveNewsDataStoreModel: ObservableObject {
                 saved.insert(news.userSavedNews, at: 0)
             }
         }
-        
-        return saved
-        
+        var bufer = [NewsArticle]()
+        for value in saved.reversed() {
+           bufer += [value]
+        }
+        return bufer
     }
 }

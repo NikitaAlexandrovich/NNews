@@ -15,7 +15,7 @@ struct SourceRowView: View {
         HStack{
             Text(source.name)
             Spacer()
-            Image(systemName: "chevron.right")
+//            Image(systemName: "chevron.right")
         }
     }
 }

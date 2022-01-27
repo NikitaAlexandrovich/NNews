@@ -18,11 +18,12 @@ struct BookmarkNewsTabView: View {
     @EnvironmentObject var savedNews: SaveNewsDataStoreModel
     
     var body: some View {
-        if log_Status{
-            if !savedNews.savedNews.isEmpty {
+        if !savedNews.getSavedNewsForUser().isEmpty {
+            if log_Status{
                 NavigationView{
                     if isUnlocked {
                         BookmarkedNewsView()
+                            .onDisappear(perform: blockAuthenticate)
                     } else {
                         VStack{
                             Image(systemName: "faceid")
@@ -64,11 +65,13 @@ struct BookmarkNewsTabView: View {
                 .onDisappear(perform: blockAuthenticate)
             }
             else {
-                EmptySaveNewsView()
+                NotAuthorizedAccountView()
+                    .onAppear(perform: blockAuthenticate)
             }
         }
         else {
-            NotAuthorizedAccountView()
+            EmptySaveNewsView()
+                .onAppear(perform: blockAuthenticate)
         }
     }
     
