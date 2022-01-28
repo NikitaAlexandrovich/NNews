@@ -15,15 +15,15 @@ struct OnBoardingView: View {
     var body: some View {
         ZStack{
             if curentPage == 1 {
-                ScreenView(image: "firstOnBoarding", title: "Step 1", detail: "Instruction for 1", bgColor: .cyan)
+                ScreenView(image: "topHeadlines", title: "Headers", detail: "", bgColor: .white)
                     .transition(.move(edge: .leading))
             }
             if curentPage == 2 {
-                ScreenView(image: "firstOnBoarding", title: "Step 2", detail: "Instruction for 2", bgColor: .yellow)
+                ScreenView(image: "sourceNews", title: "News Author", detail: "It is possible to select a source and view a list of the latest available news.", bgColor: .white)
                     .transition(.move(edge: .leading))
             }
             if curentPage == 3 {
-                ScreenView(image: "firstOnBoarding", title: "Step 3", detail: "Instruction for 3", bgColor: .red)
+                ScreenView(image: "faceID", title: "Bookmark Protection", detail: "Use FaceID or TouchID for secure You bookmarked news.", bgColor: .white)
                     .transition(.move(edge: .leading))
             }
         }
@@ -92,6 +92,7 @@ struct ScreenView: View{
             HStack{
                 if curentPage == 1 {
                     Text("Welcome to NNews")
+                        .foregroundColor(.black)
                         .font(.title)
                         .fontWeight(.semibold)
                         .kerning(1.4)
@@ -135,13 +136,17 @@ struct ScreenView: View{
             .foregroundColor(.black)
             .padding()
             
-            // MARK: add .frame(height: int) when add normal image
             Spacer()
-                .frame(height: 10)
+                .frame(height: 1)
             
             Image(image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .cornerRadius(10)
+                .overlay(RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.black, lineWidth: 1))
+                .shadow(radius: 4)
+                .padding(.horizontal)
             
             Text(title)
                 .font(.title)
@@ -149,11 +154,20 @@ struct ScreenView: View{
                 .foregroundColor(.black)
                 .padding(.top)
             
-            Text(detail)
-                .fontWeight(.semibold)
-                .kerning(1.2)
-                .multilineTextAlignment(.center)
-            
+            if curentPage == 1{
+                Text("Browse Top Headlines with a choice of country \(Image(systemName: "location")) and search category \(Image(systemName: "filemenu.and.selection")).")
+                    .foregroundColor(.black)
+                    .fontWeight(.semibold)
+                    .kerning(1.2)
+                    .multilineTextAlignment(.center)
+            }
+            else {
+                Text(detail)
+                    .foregroundColor(.black)
+                    .fontWeight(.semibold)
+                    .kerning(1.2)
+                    .multilineTextAlignment(.center)
+            }
             Spacer(minLength: 120)
         }
         .background(bgColor).ignoresSafeArea()
