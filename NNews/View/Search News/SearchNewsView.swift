@@ -8,19 +8,7 @@
 import SwiftUI
 
 struct SearchNewsView: View {
-    
-//    @State var searchKey: String = ""
-//
-//    var body: some View {
-//        VStack{
-//            TextField("Some title", text: $searchKey)
-//                .textFieldStyle(.roundedBorder)
-//            NewsListView(newsArticles: NewsArticle.previewData)
-//        }
-//        .navigationTitle("Search")
-//    }
 
-    
     @StateObject var searchModel = GetSearchModel()
         
     var body: some View {

@@ -22,8 +22,6 @@ struct SecretView: View {
     
     var body: some View {
         
-//        var apiSaved = self.apiSaved
-        
         List{
             VStack{
                 VStack{
@@ -99,10 +97,6 @@ struct SecretView: View {
             .navigationTitle("Bebug menu")
         }
     }
-    
-//    private var apiSaved: APIModel {
-//        return APIDataStore.APIBased
-//    }
 }
 
 struct SecretView_Previews: PreviewProvider {

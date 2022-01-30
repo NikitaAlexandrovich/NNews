@@ -28,7 +28,7 @@ struct LoginPage: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 28, height: 28)
-                        Text("Sing In With Google")
+                        Text("Sign In With Google")
                     }
                 })
                     .buttonStyle(RoundedCorners(color: Color.black))

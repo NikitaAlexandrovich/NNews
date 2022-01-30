@@ -12,8 +12,6 @@ fileprivate let relativeDateFormatter = RelativeDateTimeFormatter()
 struct NewsArticle{
     
 //    let id = UUID()
-
-    let source: Source
     let title: String
     let url: String
     let publishedAt: Date
@@ -55,13 +53,6 @@ extension NewsArticle: Equatable{}
 extension NewsArticle: Identifiable{
     var id: String { url }
 }
-
-struct Source {
-    let name: String
-}
-
-extension Source: Codable {}
-extension Source: Equatable {}
 
 extension NewsArticle {
     

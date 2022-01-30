@@ -155,7 +155,7 @@ struct ScreenView: View{
                 .padding(.top)
             
             if curentPage == 1{
-                Text("Browse Top Headlines with a choice of country \(Image(systemName: "location")) and search category \(Image(systemName: "filemenu.and.selection")).")
+                Text("Browse Top Headlines with a choice of country \(Image(systemName: "mappin.and.ellipse")) and search category \(Image(systemName: "books.vertical")).")
                     .foregroundColor(.black)
                     .fontWeight(.semibold)
                     .kerning(1.2)
@@ -167,6 +167,7 @@ struct ScreenView: View{
                     .fontWeight(.semibold)
                     .kerning(1.2)
                     .multilineTextAlignment(.center)
+                    .padding()
             }
             Spacer(minLength: 120)
         }

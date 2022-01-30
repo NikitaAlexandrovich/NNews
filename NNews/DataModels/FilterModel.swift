@@ -16,6 +16,14 @@ enum Country: String, CaseIterable{
     case IT_Italy
     case JP_Japan
     case CN_China
+    case IN_India
+    case GR_Greece
+    case AU_Australia
+    case AT_Austria
+    case CA_Canada
+    case PL_Poland
+    case AE_UAE
+    case FR_France
     
     var getCoutry: String {
         if self == .My_Location {

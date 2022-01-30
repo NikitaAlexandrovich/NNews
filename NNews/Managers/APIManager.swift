@@ -23,6 +23,7 @@ struct APIManager{
     }
     
     private func getAllNews(newsUrl: URL) async throws -> [NewsArticle] {
+//        print(session.)
         let (data, response) = try await session.data(from: newsUrl)
         
         guard let response = response as? HTTPURLResponse else{

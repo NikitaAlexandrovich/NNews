@@ -71,7 +71,7 @@ struct NewsTabView: View {
                 }
             }
         } label: {
-            Image(systemName: "location")
+            Image(systemName: "mappin.and.ellipse")
         }
     }
     
@@ -83,7 +83,7 @@ struct NewsTabView: View {
                 }
             }
         } label: {
-            Image(systemName: "filemenu.and.selection")
+            Image(systemName: "books.vertical")
         }
     }
     

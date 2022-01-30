@@ -13,19 +13,6 @@ struct BookmarkedNewsView: View {
     
     @State var saved: [NewsArticle] = []
     
-//    init() {
-//        ForEach(savedNews.savedNews{ news in
-//            if news.userEmail == UserDataStoreModel.shared.accountInformation.userEmail {
-//                saved.insert(news.userSavedNews, at: 0)
-//            }
-//        }
-////            for news in savedNews.savedNews {
-////                if news.userEmail == UserDataStoreModel.shared.accountInformation.userEmail {
-////                    saved.insert(news.userSavedNews, at: 0)
-////                }
-////            }
-//    }
-    
     var body: some View {
         
         if savedNews.getSavedNewsForUser().isEmpty{
@@ -37,14 +24,6 @@ struct BookmarkedNewsView: View {
         }
         
     }
-    
-//    private func loadingSaveNews() {
-//        for news in savedNews.savedNews {
-//            if news.userEmail == UserDataStoreModel.shared.accountInformation.userEmail {
-//                saved.insert(news.userSavedNews, at: 0)
-//            }
-//        }
-//    }
 }
 
 struct BookmarkedNewsView_Previews: PreviewProvider {
